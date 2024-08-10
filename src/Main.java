@@ -2,7 +2,6 @@ public class Main {
     public static void main(String[] args) {
 
         LoginService loginService = new LoginService();
-
         String login = "Iam_Deer2";
         String password = "BlaBlaDer100";
         String confirmPassword = "BlaBlaDer100";

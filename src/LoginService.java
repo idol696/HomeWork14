@@ -1,18 +1,18 @@
 public class LoginService {
 
-
     public void check(String login, String password, String confirmPassword) {
         checkLogin(login);
-        checkPassword(password,confirmPassword);
+        checkPassword(password, confirmPassword);
     }
+
     private void checkPassword(String password, String confirmPassword) {
 
         if (password.length() > 20) {
             throw new WrongPasswordException("Пароль не может быть длиннее 20 символов");
         }
         if (isStringError(password)) {
-           throw new WrongPasswordException("Пароль должен содержать цифры или латинские" +
-                   " буквы или символ нижнего подчеркивания. Другие символы не допускаются!");
+            throw new WrongPasswordException("Пароль должен содержать цифры или латинские" +
+                    " буквы или символ нижнего подчеркивания. Другие символы не допускаются!");
         }
 
         if (!password.equals(confirmPassword)) {
@@ -30,8 +30,6 @@ public class LoginService {
         }
     }
 
-
-
     private boolean isStringError(String string) {
 
         String validatorTemplate = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_";
@@ -39,10 +37,10 @@ public class LoginService {
             final char charVerify = string.charAt(i);
             boolean isCharFound = false;
             for (int j = 0; j < validatorTemplate.length(); j++) {
-                 if (charVerify == validatorTemplate.charAt(j)) {
-                     isCharFound = true;
-                     break;
-                 }
+                if (charVerify == validatorTemplate.charAt(j)) {
+                    isCharFound = true;
+                    break;
+                }
             }
             if (!isCharFound) {
                 return true;
